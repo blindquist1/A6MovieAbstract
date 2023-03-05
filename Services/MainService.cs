@@ -10,8 +10,7 @@ using System.Xml.Serialization;
 namespace ApplicationTemplate.Services;
 
 /// <summary>
-///     You would need to inject your interfaces here to execute the methods in Invoke()
-///     See the commented out code as an example
+///     Main program to run the user interface. Inherits from IMainService.
 /// </summary>
 public class MainService : IMainService
 {
@@ -34,7 +33,7 @@ public class MainService : IMainService
 
             bool validEntry = false;
 
-            //Keep looping through until user chooses a valid entry, an integer and between 1 and 3.
+            //Keep looping through until user chooses a valid entry, an integer and between 1 and 4.
             while (!validEntry)
             {
                 menuSelection = InputService.GetIntWithPrompt("Select an option: ", "Entry must be an integer");
@@ -48,24 +47,27 @@ public class MainService : IMainService
                 }
             }
 
-            string option = null;
+            MediaContext context = new MediaContext();
 
             if (menuSelection == 1)
             {
-                option = "Movies";
+                context.MoviesRead();
+                context.MoviesDisplay();
+
             }
             else if (menuSelection == 2)
             {
-                option = "Shows";
+                context.ShowsRead();
+                context.ShowsDisplay();
             }
             else if (menuSelection == 3)
             {
-                option = "Videos";
+                context.VideosRead();
+                context.VideosDisplay();
             }
 
             if (menuSelection != 4)
             {
-                MediaContext context = new MediaContext(option);
                 Console.WriteLine();
             }
         }

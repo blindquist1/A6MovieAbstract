@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+///     Class to handle properties and Display method for a single Movie
+/// </summary>
+
 namespace ApplicationTemplate.Models
 {
-    public class Movie : Media //This refers to the abstract class below
+    public class Movie : Media //Uses the abstract class Media
     {
         //These are properties
         public string[] Genres { get; set; }

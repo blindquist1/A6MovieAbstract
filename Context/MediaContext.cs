@@ -7,6 +7,10 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+///     Class to handle file read and display
+/// </summary>
+
 namespace ApplicationTemplate.Context
 {
     public class MediaContext
@@ -21,26 +25,12 @@ namespace ApplicationTemplate.Context
         
         string _title;
 
-        //Simulates loading up a file
-        public MediaContext(string type) //Simulates loading up a file
+        public MediaContext()
         {
-            if (type == "Movies")
-            {
-                MoviesRead();
-                MoviesDisplay();
-            }
-            else if (type == "Shows")
-            {
-                ShowsRead();
-                ShowsDisplay();
-            }
-            else if (type == "Videos")
-            {
-                VideosRead();
-                VideosDisplay();
-            }
         }
-        private void MoviesRead()
+
+        //Read in the Movies file
+        public void MoviesRead()
         {
             _file = $"{Environment.CurrentDirectory}/data/movies.csv";
             string genres;
@@ -62,7 +52,6 @@ namespace ApplicationTemplate.Context
                 // 2nd array element contains movie title
                 _title = movieDetails[1];
                 // 3rd array element contains movie genre(s)
-                // replace "|" with ", "
                 genres = movieDetails[2].Replace("|", ", ");
 
                 Movies.Add(new Movie() { Id = _id, Title = _title, Genres = new string[] { genres } });
@@ -71,7 +60,8 @@ namespace ApplicationTemplate.Context
             sr.Close();
         }
 
-        private void MoviesDisplay()
+        //Display the Movies list
+        public void MoviesDisplay()
         {
             foreach (Movie movie in Movies)
             {
@@ -79,7 +69,8 @@ namespace ApplicationTemplate.Context
             }
         }
 
-        private void ShowsRead()
+        //Read in the Shows file
+        public void ShowsRead()
         {
             _file = $"{Environment.CurrentDirectory}/data/shows.csv";
             int season;
@@ -115,14 +106,17 @@ namespace ApplicationTemplate.Context
             // close file when done
             sr.Close();
         }
-        private void ShowsDisplay()
+        //Display the Shows list
+        public void ShowsDisplay()
         {
             foreach (Show show in Shows)
             {
                 show.Display();
             }
         }
-        private void VideosRead()
+
+        //Read in the Videos file
+        public void VideosRead()
         {
             _file = $"{Environment.CurrentDirectory}/data/videos.csv";
             string formats;
@@ -146,7 +140,7 @@ namespace ApplicationTemplate.Context
                 _id = int.Parse(videoDetails[0]);
                 // 2nd array element contains video title
                 _title = videoDetails[1];
-                // 3rd array element contains video format
+                // 3rd array element contains video format(s)
                 formats = videoDetails[2].Replace("|", ",");
                 // 4th array element contains video length
                 length = int.Parse(videoDetails[3]);
@@ -159,7 +153,9 @@ namespace ApplicationTemplate.Context
             // close file when done
             sr.Close();
         }
-        private void VideosDisplay()
+        
+        //Display the videos list
+        public void VideosDisplay()
         {
             foreach (Video video in Videos)
             {

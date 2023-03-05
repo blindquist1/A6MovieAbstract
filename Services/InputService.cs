@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+///     Class to handle user input validation
+/// </summary>
+
 namespace A5Movie.Services
 {
     internal class InputService
