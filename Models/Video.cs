@@ -16,10 +16,5 @@ namespace ApplicationTemplate.Models
         {
             System.Console.WriteLine($"Title: {Title} Formats: {string.Join(", ", Formats)} Length: {Length} Regions: {string.Join(", ", Regions)}");
         }
-
-        public override void Return()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -16,9 +16,5 @@ namespace ApplicationTemplate.Models
         {
             System.Console.WriteLine($"Title: {Title} Season: {Season} Episode: {Episode} Writers: {string.Join(", ", Writers)}");
         }
-        public override void Return()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

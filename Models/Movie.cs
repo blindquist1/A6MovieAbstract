@@ -15,29 +15,5 @@ namespace ApplicationTemplate.Models
         {
             System.Console.WriteLine($"Title: {Title} Genres: {string.Join(", ", Genres)}");
         }
-
-        public override void Return()
-        {
-            throw new NotImplementedException();
-        }
-        /*
-        public static implicit operator Movie(Movie v)
-        {
-            throw new NotImplementedException();
-        }
-        */
     }
-
-    public class TicketOffice
-    {
-        List<Movie> Movies { get; set; }
-        public void Search(string movieToSearchFor)
-        {
-            foreach(var movie in Movies)
-            {
-                //does my movie match movieToSearchFor
-            }
-        }
-    }
-
 }
